@@ -1,0 +1,10 @@
+[package]
+name = "gen-theme"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+cosmic-theme = { git = "https://github.com/pop-os/libcosmic" }
+cosmic-config = { git = "https://github.com/pop-os/libcosmic", default-features = false }
+ron = "0.12"
+serde = "1"

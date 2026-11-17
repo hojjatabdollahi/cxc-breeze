@@ -1,0 +1,43 @@
+name: bundle
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # One zip per mode. The importer expects the metainfo file, config/ and data/ at the zip root
+      # and rejects symlinks. Each zip only gets its own theme, icons, cursors and wallpaper, and the font.
+      - name: Zip the bundles
+        run: |
+          bundle() {
+            id="com.system76.CosmicThemeBundle.$1"
+            zip -r -X "$2" "$id.metainfo.xml" config/cosmic/"$id".{Theme,Builder,Background} \
+              data/cosmic/"$1" data/icons/"$id".{icons,cursors} data/fonts LICENSE NOTICE.md LICENSES
+          }
+          bundle breeze breeze-light.zip
+          bundle breeze-dark breeze-dark.zip
+
+      # One release per x-cosmic-version (both metainfo files must agree). Pushing without bumping
+      # the version replaces the zips on the existing release, so releases/latest always matches main.
+      - name: Publish release
+        run: |
+          version() { grep -oP '(?<=key="x-cosmic-version">)[^<]+' "com.system76.CosmicThemeBundle.$1.metainfo.xml"; }
+          tag="v$(version breeze)"
+          [ "$tag" = "v$(version breeze-dark)" ] || { echo "the light and dark metainfo versions differ"; exit 1; }
+          assets="breeze-light.zip breeze-dark.zip"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" $assets --clobber
+          else
+            gh release create "$tag" $assets --title "Breeze $tag" \
+              --notes "COSMIC theme bundles, one per mode. Import breeze-light.zip or breeze-dark.zip under Settings > Desktop > Appearance."
+          fi
