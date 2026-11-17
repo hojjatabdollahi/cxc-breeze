@@ -1,0 +1,11 @@
+[package]
+name = "gen-theme"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+# shortcut: local libcosmic checkout, swap for a git dep if this builds elsewhere
+cosmic-theme = { path = "../../../../Project/rust/libcosmic/cosmic-theme" }
+cosmic-config = { path = "../../../../Project/rust/libcosmic/cosmic-config", default-features = false }
+ron = "0.12"
+serde = "1"
