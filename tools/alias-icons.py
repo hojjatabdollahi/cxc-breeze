@@ -125,7 +125,8 @@ for level in (0, 5, 10, 20, 35, 50, 65, 80, 90, 100):
         for charging in ("", "-charging"):
             ALIASES[f"cosmic-applet-battery-level-{level}{limited}{charging}-symbolic"] = f"status/22/battery-{tens}{charging}.svg"
 
-for theme in sorted((Path(__file__).resolve().parent.parent / "data/icons").glob("*.icons")):
+# Each mode is its own bundle folder (light/, dark/), each with its own icon theme.
+for theme in sorted((Path(__file__).resolve().parent.parent).glob("*/data/icons/*.icons")):
     for name, source in ALIASES.items():
         shutil.copyfile(theme / source, theme / "status/symbolic" / f"{name}.svg")
     # Monochrome versions drawn here for names Breeze only has coloured icons for.
