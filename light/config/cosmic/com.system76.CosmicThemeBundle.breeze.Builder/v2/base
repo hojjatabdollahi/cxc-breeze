@@ -89,7 +89,7 @@
         extremely_high_2: 0.6,
     ),
     icon_theme: "io.github.hojjatabdollahi.cxc-breeze.icons",
-    cursor_theme: Some("io.github.hojjatabdollahi.cxc-breeze.cursors"),
+    cursor_theme: None,
     font: (
         family: "Noto Sans",
         weight: Normal,

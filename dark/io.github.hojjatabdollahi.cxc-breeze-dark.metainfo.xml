@@ -4,7 +4,7 @@
   <name>Breeze Dark</name>
   <summary>KDE Plasma's Breeze look, dark</summary>
   <description>
-    <p>The default look of KDE Plasma, for COSMIC: Breeze's dark colors with its icons, cursors and wallpaper.</p>
+    <p>The default look of KDE Plasma, for COSMIC: Breeze's dark colors with its icons and wallpaper.</p>
   </description>
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-3.0-or-later</project_license>
@@ -15,6 +15,6 @@
     <value key="x-cosmic-slug">breeze-dark</value>
     <value key="x-cosmic-mode">dark</value>
     <value key="x-cosmic-parts">Theme,Builder,Background</value>
-    <value key="x-cosmic-assets">[(id:"io.github.hojjatabdollahi.cxc-breeze-dark.wallpapers",kind:Wallpaper,path:"data/cosmic/breeze-dark/wallpapers",name:"breeze-dark"),(id:"io.github.hojjatabdollahi.cxc-breeze-dark.icons",kind:IconTheme,path:"data/icons/io.github.hojjatabdollahi.cxc-breeze-dark.icons",name:"Breeze Dark"),(id:"io.github.hojjatabdollahi.cxc-breeze-dark.cursors",kind:CursorTheme,path:"data/icons/io.github.hojjatabdollahi.cxc-breeze-dark.cursors",name:"Breeze Light"),(id:"io.github.hojjatabdollahi.cxc-breeze-dark.fonts.hack",kind:Font,path:"data/fonts/io.github.hojjatabdollahi.cxc-breeze-dark.fonts.hack",name:"Hack")]</value>
+    <value key="x-cosmic-assets">[(id:"io.github.hojjatabdollahi.cxc-breeze-dark.wallpapers",kind:Wallpaper,path:"data/cosmic/breeze-dark/wallpapers",name:"breeze-dark"),(id:"io.github.hojjatabdollahi.cxc-breeze-dark.icons",kind:IconTheme,path:"data/icons/io.github.hojjatabdollahi.cxc-breeze-dark.icons",name:"Breeze Dark"),(id:"io.github.hojjatabdollahi.cxc-breeze-dark.fonts.hack",kind:Font,path:"data/fonts/io.github.hojjatabdollahi.cxc-breeze-dark.fonts.hack",name:"Hack")]</value>
   </custom>
 </component>
